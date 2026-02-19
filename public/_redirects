@@ -1,2 +1,6 @@
-# SPA fallback - all routes serve index.html for React Router
+# Proxy API requests to serverless function (avoids CORS)
+/api/quran/*  /.netlify/functions/quran-proxy  200!
+/api/quran    /.netlify/functions/quran-proxy  200!
+
+# SPA fallback
 /*  /index.html  200

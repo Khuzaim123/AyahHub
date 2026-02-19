@@ -1,10 +1,8 @@
 import axios from 'axios';
 
-// Dev: Vite proxy forwards /api/quran → external API (avoids CORS on localhost)
-// Prod: Call the API directly (Cloudflare Pages has CORS enabled)
-const BASE_URL = import.meta.env.DEV
-    ? '/api/quran'
-    : 'https://alquran-api.pages.dev/api/quran';
+// Both dev (Vite proxy) and prod (Netlify _redirects proxy) forward
+// /api/quran → https://alquran-api.pages.dev/api/quran   (avoids CORS)
+const BASE_URL = '/api/quran';
 
 const api = axios.create({
     baseURL: BASE_URL,
